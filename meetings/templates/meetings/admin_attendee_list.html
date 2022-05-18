@@ -1,0 +1,54 @@
+{% extends "meetings/admin_base_dashboard.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+     <div class="content-section">
+  
+{% if attendees %}
+
+{% for attendee  in attendees %}
+ 
+
+<div id="accordion">
+
+  <div class="card">
+    <div class="card-header">
+      <a class="card-link" data-toggle="collapse" href="#{{ attendee.id}}">
+        <h6>{{attendee.first_name}} {{attendee.last_name}}</h6>
+      </a>
+    </div>
+    <div id="{{ attendee.id}}" class="collapse hide" data-parent="#accordion">
+      <div class="card-body">
+
+        <h1>Details come here!</h1>
+
+
+        <div>
+       <h6>buttons here</h6>
+       </div>
+  
+      </div>
+    </div>
+  </div>
+</div>
+
+      {% endfor %}
+
+           {% else %}
+        <p>Sorry, There is no meeting in this area yet.</p>
+        {% endif %}       
+
+
+
+      
+
+
+    </div>
+
+{% endblock content %}
+
+
+  
+
+
+
+ 
